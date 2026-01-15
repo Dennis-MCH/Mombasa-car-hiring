@@ -3,52 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mombasa Car Hiring - Self-Drive Rentals | Transparent Pricing | Local Service</title>
-    <meta name="description" content="Rent self-drive cars in Mombasa from KES 3,000/day. Transparent pricing, local support, verified vehicles. Car owners: earn passive income listing your insured vehicle.">
+    <title>PwaniRides - Self-Drive Car Rentals in Mombasa | From KES 3,000/Day</title>
+    <meta name="description" content="PwaniRides: Self-drive car rentals in Mombasa from KES 3,000/day. Transparent pricing. ISO-certified fleet coordination. Car owners: earn passive income.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
         :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --bg-card: #ffffff;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --border: #e5e7eb;
             --primary: #2563eb;
             --primary-dark: #1e40af;
             --secondary: #10b981;
             --secondary-dark: #059669;
-            --accent: #f59e0b;
-            --dark: #1f2937;
-            --light: #f9fafb;
-            --border: #e5e7eb;
+            --shadow: rgba(0,0,0,0.1);
         }
+        
+        [data-theme="dark"] {
+            --bg-primary: #111827;
+            --bg-secondary: #1f2937;
+            --bg-card: #1f2937;
+            --text-primary: #f9fafb;
+            --text-secondary: #9ca3af;
+            --border: #374151;
+            --shadow: rgba(0,0,0,0.3);
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body { 
             font-family: 'Inter', sans-serif; 
             line-height: 1.6; 
-            color: var(--dark); 
-            background-color: #fff;
+            color: var(--text-primary); 
+            background: var(--bg-primary);
+            transition: background 0.3s, color 0.3s;
         }
         
-        /* Smooth Scroll */
         html { scroll-behavior: smooth; }
         
         /* Header */
         header { 
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); 
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark)); 
             color: white; 
             padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px var(--shadow);
         }
         
-        .header-content {
+        .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+        }
+        
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
         }
         
         .logo {
@@ -59,62 +77,75 @@
             gap: 10px;
         }
         
-        .header-cta {
+        .header-nav {
             display: flex;
             gap: 15px;
             align-items: center;
         }
         
-        .header-cta a {
+        .header-nav a {
             color: white;
             text-decoration: none;
-            padding: 8px 20px;
+            padding: 8px 16px;
             border-radius: 6px;
-            font-weight: 600;
+            font-weight: 500;
             transition: all 0.3s;
             font-size: 0.9rem;
         }
         
-        .header-cta .whatsapp-btn {
+        .whatsapp-btn {
             background: var(--secondary);
             display: flex;
             align-items: center;
             gap: 8px;
         }
         
-        .header-cta .whatsapp-btn:hover {
+        .whatsapp-btn:hover {
             background: var(--secondary-dark);
             transform: translateY(-2px);
         }
         
-        /* Hero Section */
+        .theme-toggle {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+        
+        .theme-toggle:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        /* Hero */
         .hero { 
-            background: linear-gradient(135deg, rgba(37,99,235,0.95) 0%, rgba(30,64,175,0.95) 100%),
-                        url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
-            padding: 80px 20px; 
+            background: linear-gradient(135deg, rgba(37,99,235,0.95), rgba(30,64,175,0.95)),
+                        url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1920&q=80') center/cover;
+            padding: 100px 20px; 
             text-align: center; 
             color: white;
         }
         
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
         .hero h1 { 
-            font-size: 2.5rem; 
+            font-size: 2.8rem; 
             margin-bottom: 20px; 
             font-weight: 700;
             line-height: 1.2;
         }
         
         .hero p { 
-            font-size: 1.2rem; 
+            font-size: 1.3rem; 
             margin-bottom: 30px; 
             opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
-        .hero-badges {
+        .badge-group {
             display: flex;
             justify-content: center;
             gap: 30px;
@@ -126,52 +157,59 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            font-size: 0.95rem;
-            background: rgba(255,255,255,0.1);
-            padding: 10px 20px;
+            background: rgba(255,255,255,0.15);
+            padding: 12px 24px;
             border-radius: 50px;
             backdrop-filter: blur(10px);
         }
         
-        .badge i { font-size: 1.2rem; }
-        
-        /* Buttons */
-        .cta-button { 
+        .btn {
             display: inline-block;
-            background-color: var(--secondary); 
-            color: white; 
-            padding: 15px 35px; 
-            text-decoration: none; 
-            border-radius: 8px; 
+            padding: 15px 35px;
+            border-radius: 8px;
             font-weight: 600;
             font-size: 1.1rem;
+            text-decoration: none;
             transition: all 0.3s;
             border: none;
             cursor: pointer;
         }
         
-        .cta-button:hover { 
-            background-color: var(--secondary-dark);
+        .btn-primary {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--secondary-dark);
             transform: translateY(-3px);
             box-shadow: 0 10px 25px rgba(16,185,129,0.3);
         }
         
-        .cta-button-secondary {
-            background-color: white;
+        .btn-secondary {
+            background: white;
             color: var(--primary);
-            border: 2px solid white;
         }
         
-        .cta-button-secondary:hover {
-            background-color: transparent;
-            color: white;
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.9);
         }
         
-        /* Section Styles */
-        .section { 
-            padding: 80px 20px; 
-            max-width: 1200px; 
-            margin: 0 auto; 
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        /* Sections */
+        section {
+            padding: 80px 20px;
+        }
+        
+        .section-alt {
+            background: var(--bg-secondary);
         }
         
         .section-header {
@@ -182,30 +220,26 @@
         .section-header h2 {
             font-size: 2.2rem;
             margin-bottom: 15px;
-            color: var(--dark);
         }
         
         .section-header p {
             font-size: 1.1rem;
-            color: #6b7280;
+            color: var(--text-secondary);
             max-width: 700px;
             margin: 0 auto;
         }
         
         /* Trust Bar */
         .trust-bar {
-            background: var(--light);
+            background: var(--bg-secondary);
             padding: 30px 20px;
-            text-align: center;
         }
         
-        .trust-stats {
+        .stats {
             display: flex;
             justify-content: center;
             gap: 50px;
             flex-wrap: wrap;
-            max-width: 900px;
-            margin: 0 auto;
         }
         
         .stat {
@@ -216,34 +250,31 @@
             font-size: 2.5rem;
             font-weight: 700;
             color: var(--primary);
-            display: block;
         }
         
         .stat-label {
-            color: #6b7280;
-            font-size: 0.9rem;
+            color: var(--text-secondary);
             margin-top: 5px;
         }
         
-        /* Cards Grid */
-        .grid { 
+        /* Grid */
+        .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
         
-        .card { 
-            background: white; 
-            padding: 35px; 
-            border-radius: 12px; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        .card {
+            background: var(--bg-card);
+            padding: 35px;
+            border-radius: 12px;
             border: 1px solid var(--border);
             transition: all 0.3s;
         }
         
-        .card:hover { 
+        .card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 40px var(--shadow);
         }
         
         .card-icon {
@@ -262,18 +293,17 @@
             color: white;
         }
         
-        .card h3 { 
+        .card h3 {
             font-size: 1.3rem;
             margin-bottom: 15px;
-            color: var(--dark);
         }
         
         .card p {
-            color: #6b7280;
+            color: var(--text-secondary);
             line-height: 1.8;
         }
         
-        /* How It Works */
+        /* Steps */
         .steps {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -283,7 +313,6 @@
         
         .step {
             text-align: center;
-            position: relative;
         }
         
         .step-number {
@@ -302,13 +331,11 @@
         }
         
         .step h3 {
-            font-size: 1.2rem;
             margin-bottom: 10px;
-            color: var(--dark);
         }
         
         .step p {
-            color: #6b7280;
+            color: var(--text-secondary);
         }
         
         /* Pricing */
@@ -320,7 +347,7 @@
         }
         
         .price-card {
-            background: white;
+            background: var(--bg-card);
             border: 2px solid var(--border);
             border-radius: 16px;
             padding: 40px 30px;
@@ -330,19 +357,12 @@
         
         .price-card.featured {
             border-color: var(--primary);
-            box-shadow: 0 20px 60px rgba(37,99,235,0.15);
             transform: scale(1.05);
         }
         
         .price-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-        }
-        
-        .price-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: var(--dark);
+            box-shadow: 0 15px 40px var(--shadow);
         }
         
         .price {
@@ -354,17 +374,17 @@
         
         .price span {
             font-size: 1.2rem;
-            color: #6b7280;
+            color: var(--text-secondary);
             font-weight: 400;
         }
         
-        .price-features {
+        .feature-list {
             list-style: none;
             margin: 30px 0;
             text-align: left;
         }
         
-        .price-features li {
+        .feature-list li {
             padding: 12px 0;
             border-bottom: 1px solid var(--border);
             display: flex;
@@ -372,24 +392,23 @@
             gap: 10px;
         }
         
-        .price-features i {
+        .feature-list i {
             color: var(--secondary);
-            font-size: 1.1rem;
         }
         
-        /* Form Styles */
+        /* Form */
         .form-container {
-            background: white;
+            background: var(--bg-card);
             padding: 40px;
             border-radius: 16px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 40px var(--shadow);
             max-width: 600px;
             margin: 50px auto 0;
         }
         
-        form { 
-            display: grid; 
-            gap: 20px; 
+        form {
+            display: grid;
+            gap: 20px;
         }
         
         .form-row {
@@ -398,20 +417,21 @@
             gap: 20px;
         }
         
-        label { 
+        label {
             font-weight: 600;
             margin-bottom: 8px;
             display: block;
-            color: var(--dark);
         }
         
-        input, select, textarea { 
-            width: 100%; 
-            padding: 12px 15px; 
-            border: 2px solid var(--border); 
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid var(--border);
             border-radius: 8px;
             font-size: 1rem;
             font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             transition: all 0.3s;
         }
         
@@ -427,88 +447,26 @@
             gap: 10px;
         }
         
-        .checkbox-wrapper input[type="checkbox"] { 
+        .checkbox-wrapper input {
             width: auto;
             margin-top: 4px;
         }
         
-        .disclaimer { 
-            font-size: 0.9rem; 
-            color: #6b7280;
-            line-height: 1.6;
-        }
-        
-        button { 
+        button {
             background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
-            color: white; 
-            border: none; 
-            padding: 15px; 
-            border-radius: 8px; 
-            cursor: pointer; 
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
             font-weight: 600;
             font-size: 1.1rem;
             transition: all 0.3s;
         }
         
-        button:hover { 
+        button:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(16,185,129,0.3);
-        }
-        
-        /* Testimonials */
-        .testimonials {
-            background: var(--light);
-        }
-        
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        
-        .testimonial {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            color: #4b5563;
-            margin-bottom: 20px;
-            line-height: 1.8;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-        
-        .author-info h4 {
-            font-size: 1rem;
-            margin-bottom: 3px;
-            color: var(--dark);
-        }
-        
-        .author-info p {
-            font-size: 0.85rem;
-            color: #6b7280;
         }
         
         /* FAQ */
@@ -518,7 +476,7 @@
         }
         
         .faq-item {
-            background: white;
+            background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 12px;
             margin-bottom: 15px;
@@ -532,12 +490,11 @@
             justify-content: space-between;
             align-items: center;
             font-weight: 600;
-            color: var(--dark);
             transition: all 0.3s;
         }
         
         .faq-question:hover {
-            background: var(--light);
+            background: var(--bg-secondary);
         }
         
         .faq-question i {
@@ -550,7 +507,7 @@
             max-height: 0;
             overflow: hidden;
             transition: all 0.3s;
-            color: #6b7280;
+            color: var(--text-secondary);
             line-height: 1.8;
         }
         
@@ -559,7 +516,7 @@
             max-height: 500px;
         }
         
-        .faq-item.active .faq-question i {
+        .faq-item.active i {
             transform: rotate(180deg);
         }
         
@@ -576,34 +533,25 @@
             margin-bottom: 20px;
         }
         
-        .cta-section p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-        
         /* Footer */
-        footer { 
-            background-color: var(--dark); 
-            color: white; 
+        footer {
+            background: var(--bg-secondary);
             padding: 40px 20px;
         }
         
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
+        .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
+            margin-bottom: 30px;
         }
         
         .footer-section h3 {
             margin-bottom: 20px;
-            font-size: 1.2rem;
         }
         
-        .footer-section p, .footer-section a {
-            color: #9ca3af;
+        .footer-section a {
+            color: var(--text-secondary);
             text-decoration: none;
             display: block;
             margin-bottom: 10px;
@@ -611,18 +559,17 @@
         }
         
         .footer-section a:hover {
-            color: white;
+            color: var(--primary);
         }
         
         .footer-bottom {
             text-align: center;
-            margin-top: 40px;
             padding-top: 30px;
-            border-top: 1px solid #374151;
-            color: #9ca3af;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
         }
         
-        /* Floating WhatsApp Button */
+        /* Floating Button */
         .floating-whatsapp {
             position: fixed;
             bottom: 30px;
@@ -637,39 +584,35 @@
             justify-content: center;
             font-size: 1.8rem;
             box-shadow: 0 10px 30px rgba(16,185,129,0.4);
-            cursor: pointer;
-            transition: all 0.3s;
             z-index: 999;
             text-decoration: none;
+            transition: all 0.3s;
         }
         
         .floating-whatsapp:hover {
             transform: scale(1.1);
-            box-shadow: 0 15px 40px rgba(16,185,129,0.5);
         }
         
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 1.8rem; }
-            .hero p { font-size: 1rem; }
-            .section-header h2 { font-size: 1.8rem; }
-            .form-row { grid-template-columns: 1fr; }
-            .header-content { flex-direction: column; gap: 15px; }
-            .stat-number { font-size: 2rem; }
-            .trust-stats { gap: 30px; }
-        }
-        
-        /* Alert Banner */
-        .alert-banner {
-            background: linear-gradient(135deg, var(--accent), #ea580c);
+        /* Alert */
+        .alert {
+            background: linear-gradient(135deg, #f59e0b, #ea580c);
             color: white;
             padding: 12px 20px;
             text-align: center;
             font-weight: 500;
         }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1.1rem; }
+            .section-header h2 { font-size: 1.8rem; }
+            .form-row { grid-template-columns: 1fr; }
+            .btn-group { flex-direction: column; }
+            .btn { width: 100%; text-align: center; }
+        }
     </style>
     
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7R98VTN4J6"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -679,43 +622,43 @@
     </script>
 </head>
 <body>
-    <!-- Alert Banner -->
-    <div class="alert-banner">
-        <i class="fas fa-star"></i> Transparent Pricing | No Hidden Fees | Local Mombasa Service
+    <div class="alert">
+        <i class="fas fa-star"></i> Transparent Pricing | No Hidden Fees | ISO-Certified Fleet Coordination
     </div>
 
-    <!-- Header -->
     <header>
-        <div class="header-content">
-            <div class="logo">
-                <i class="fas fa-car"></i>
-                Mombasa Car Hiring
-            </div>
-            <div class="header-cta">
-                <a href="#rent" class="header-link">Rent a Car</a>
-                <a href="#owners" class="header-link">List Your Car</a>
-                <a href="https://wa.me/254701190155" class="whatsapp-btn">
-                    <i class="fab fa-whatsapp"></i>
-                    WhatsApp
-                </a>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-car"></i> PwaniRides
+                </div>
+                <div class="header-nav">
+                    <a href="#rent">Rent</a>
+                    <a href="#owners">List Car</a>
+                    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="https://wa.me/254701190155" class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
+        <div class="container">
             <h1>Self-Drive Car Rentals in Mombasa</h1>
-            <p>Transparent pricing. Local support. Your trip, your rules. Starting from KES 3,000/day.</p>
+            <p>Transparent pricing. ISO-certified fleet coordination. Your trip, your rules.</p>
             
-            <div class="hero-badges">
+            <div class="badge-group">
                 <div class="badge">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Verified Vehicles</span>
+                    <i class="fas fa-certificate"></i>
+                    <span>ISO-Certified Operations</span>
                 </div>
                 <div class="badge">
-                    <i class="fas fa-map-marked-alt"></i>
-                    <span>Local Knowledge</span>
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <span>From KES 3,000/Day</span>
                 </div>
                 <div class="badge">
                     <i class="fas fa-comments"></i>
@@ -723,581 +666,514 @@
                 </div>
             </div>
             
-            <div style="margin-top: 30px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                <a href="https://wa.me/254701190155?text=I'd like to rent a car" class="cta-button">Book Your Car</a>
-                <a href="#how-it-works" class="cta-button cta-button-secondary">How It Works</a>
+            <div class="btn-group">
+                <a href="https://wa.me/254701190155?text=I'd like to rent a car" class="btn btn-primary">Book Your Car</a>
+                <a href="#how-it-works" class="btn btn-secondary">How It Works</a>
             </div>
         </div>
     </section>
 
-    <!-- Trust Bar -->
-    <section class="trust-bar">
-        <div class="trust-stats">
-            <div class="stat">
-                <span class="stat-number">3,000+</span>
-                <span class="stat-label">Starting Price (KES/day)</span>
+    <div class="trust-bar">
+        <div class="container">
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">From 3K</div>
+                    <div class="stat-label">Daily Rate (KES)</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">WhatsApp Support</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">ISO</div>
+                    <div class="stat-label">Certified Operations</div>
+                </div>
             </div>
-            <div class="stat">
-                <span class="stat-number">24/7</span>
-                <span class="stat-label">WhatsApp Support</span>
+        </div>
+    </div>
+
+    <section id="rent">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Rent With PwaniRides?</h2>
+                <p>Professional fleet coordination using ISO 9001:2015 and ISO 19001:2018 standards from our inventory management experience.</p>
             </div>
-            <div class="stat">
-                <span class="stat-number">100%</span>
-                <span class="stat-label">Transparent Pricing</span>
+            
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                    <h3>Transparent Pricing</h3>
+                    <p>From KES 3,000/day. Final price depends on vehicle condition and owner preferences. What you see is what you pay - no hidden fees.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-certificate"></i></div>
+                    <h3>ISO-Certified Coordination</h3>
+                    <p>We use ISO 9001:2015 and ISO 19001:2018 standards for fleet coordination. Professional inventory management experience ensures smooth operations.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-key"></i></div>
+                    <h3>Self-Drive Freedom</h3>
+                    <p>Your trip, your pace, your rules. No third-party driver. Full privacy and flexibility to explore Mombasa and the Coast region.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Owner-Insured Vehicles</h3>
+                    <p>All vehicles come with comprehensive insurance maintained by car owners. We verify coverage before every booking.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-headset"></i></div>
+                    <h3>24/7 WhatsApp Support</h3>
+                    <p>Questions? Issues? Message us anytime on WhatsApp. We're always available to help.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-file-contract"></i></div>
+                    <h3>Clear Documentation</h3>
+                    <p>Written agreements for every rental. Everything documented to protect both you and the car owner.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us -->
-    <section class="section" id="rent">
-        <div class="section-header">
-            <h2>Why Rent With Us?</h2>
-            <p>We're building Mombasa's most transparent car hire service. No hidden fees. No complicated terms. Just reliable rides.</p>
-        </div>
-        
-        <div class="grid">
-            <div class="card">
-                <div class="card-icon">
-                    <i class="fas fa-hand-holding-usd"></i>
-                </div>
-                <h3>Transparent Pricing</h3>
-                <p>No surprises. What you see is what you pay. Economy cars from KES 3,000/day, SUVs from KES 5,000/day. All prices upfront.</p>
+    <section class="section-alt" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works (For Renters)</h2>
+                <p>Renting a car in Mombasa has never been easier.</p>
             </div>
             
-            <div class="card">
-                <div class="card-icon">
-                    <i class="fas fa-key"></i>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Contact Us</h3>
+                    <p>WhatsApp 0701190155. Tell us your dates and preferred vehicle type.</p>
                 </div>
-                <h3>Self-Drive Freedom</h3>
-                <p>Your trip, your pace, your rules. No third-party driver. Full privacy and flexibility to explore Mombasa and the Coast region.</p>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Choose Vehicle</h3>
+                    <p>We'll show you available vehicles with transparent pricing based on condition and owner rates.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Confirm & Pay</h3>
+                    <p>Review agreement, verify insurance, and pay to confirm your booking.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Pick Up & Drive</h3>
+                    <p>Meet us in Mombasa for vehicle handover. Start your adventure!</p>
+                </div>
             </div>
             
-            <div class="card">
-                <div class="card-icon">
-                    <i class="fas fa-map-marker-alt"></i>
-                </div>
-                <h3>Local Insider Knowledge</h3>
-                <p>Free Mombasa itinerary with every booking. We'll help you avoid tourist traps and find the best spots only locals know about.</p>
-            </div>
-            
-            <div class="card">
-                <div class="card-icon">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <h3>Verified Vehicles</h3>
-                <p>All vehicles are from insured car owners. We verify insurance coverage and vehicle condition before listing.</p>
-            </div>
-            
-            <div class="card">
-                <div class="card-icon">
-                    <i class="fas fa-headset"></i>
-                </div>
-                <h3>24/7 WhatsApp Support</h3>
-                <p>Questions? Issues? Need recommendations? Message us anytime on WhatsApp. We're local and always available.</p>
-            </div>
-            
-            <div class="card">
-                <div class="card-icon">
-                    <i class="fas fa-file-contract"></i>
-                </div>
-                <h3>Clear Documentation</h3>
-                <p>Written agreements for every rental. No verbal promises. Everything documented to protect both you and the car owner.</p>
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="https://wa.me/254701190155?text=I'd like to rent a car" class="btn btn-primary">
+                    <i class="fab fa-whatsapp"></i> Start Your Booking
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- How It Works -->
-    <section class="section" style="background: var(--light);" id="how-it-works">
-        <div class="section-header">
-            <h2>How It Works (For Renters)</h2>
-            <p>Renting a car in Mombasa has never been easier. Here's our simple 4-step process.</p>
-        </div>
-        
-        <div class="steps">
-            <div class="step">
-                <div class="step-number">1</div>
-                <h3>Message Us</h3>
-                <p>WhatsApp or call 0701190155. Tell us your dates, preferred vehicle type, and any questions.</p>
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>Pricing Guide</h2>
+                <p>Transparent pricing from KES 3,000/day. Final rates depend on vehicle condition and are set by car owners.</p>
             </div>
             
-            <div class="step">
-                <div class="step-number">2</div>
-                <h3>Choose Your Car</h3>
-                <p>We'll send you available vehicles with transparent pricing. Pick the one that fits your needs and budget.</p>
-            </div>
-            
-            <div class="step">
-                <div class="step-number">3</div>
-                <h3>Verify & Agree</h3>
-                <p>We verify insurance, confirm your ID, and send you a written agreement. Everything clear and documented.</p>
-            </div>
-            
-            <div class="step">
-                <div class="step-number">4</div>
-                <h3>Pick Up & Drive</h3>
-                <p>Meet us in Mombasa for pickup. Get your free itinerary guide. Start your adventure!</p>
-            </div>
-        </div>
-        
-        <div style="text-align: center; margin-top: 50px;">
-            <a href="https://wa.me/254701190155?text=I'd like to rent a car. Can you show me available vehicles?" class="cta-button">
-                <i class="fab fa-whatsapp"></i> Start Your Booking
-            </a>
-        </div>
-    </section>
-
-    <!-- Pricing -->
-    <section class="section">
-        <div class="section-header">
-            <h2>Transparent Pricing</h2>
-            <p>No hidden fees. No surprises. Just honest pricing for self-drive rentals in Mombasa.</p>
-        </div>
-        
-        <div class="pricing-grid">
-            <div class="price-card">
-                <h3>Economy</h3>
-                <div class="price">3,000<span>/day</span></div>
-                <p style="color: #6b7280; margin-bottom: 20px;">Perfect for city driving & couples</p>
-                <ul class="price-features">
-                    <li><i class="fas fa-check"></i> Toyota Vitz or similar</li>
-                    <li><i class="fas fa-check"></i> 4-5 seats</li>
-                    <li><i class="fas fa-check"></i> Fuel efficient</li>
-                    <li><i class="fas fa-check"></i> Unlimited mileage in Coast region</li>
-                    <li><i class="fas fa-check"></i> Free Mombasa itinerary</li>
-                </ul>
-                <a href="https://wa.me/254701190155?text=I'd like to rent an economy car" class="cta-button" style="width: 100%; margin-top: 20px; display: block; text-align: center;">Book Economy</a>
-            </div>
-            
-            <div class="price-card featured">
-                <h3>Standard</h3>
-                <div class="price">4,000<span>/day</span></div>
-                <p style="color: #6b7280; margin-bottom: 20px;">Most popular for families</p>
-                <ul class="price-features">
-                    <li><i class="fas fa-check"></i> Toyota Fielder or similar</li>
-                    <li><i class="fas fa-check"></i> 5 seats + luggage space</li>
-                    <li><i class="fas fa-check"></i> Comfortable for long drives</li>
-                    <li><i class="fas fa-check"></i> Unlimited mileage in Coast region</li>
-                    <li><i class="fas fa-check"></i> Free Mombasa itinerary</li>
-                </ul>
-                <a href="https://wa.me/254701190155?text=I'd like to rent a standard car" class="cta-button" style="width: 100%; margin-top: 20px; display: block; text-align: center;">Book Standard</a>
-            </div>
-            
-            <div class="price-card">
-                <h3>SUV</h3>
-                <div class="price">5,000<span>/day</span></div>
-                <p style="color: #6b7280; margin-bottom: 20px;">Best for adventure & groups</p>
-                <ul class="price-features">
-                    <li><i class="fas fa-check"></i> Toyota RAV4 or similar</li>
-                    <li><i class="fas fa-check"></i> 5-7 seats</li>
-                    <li><i class="fas fa-check"></i> Higher ground clearance</li>
-                    <li><i class="fas fa-check"></i> Unlimited mileage in Coast region</li>
-                    <li><i class="fas fa-check"></i> Free Mombasa itinerary</li>
-                </ul>
-                <a href="https://wa.me/254701190155?text=I'd like to rent an SUV" class="cta-button" style="width: 100%; margin-top: 20px; display: block; text-align: center;">Book SUV</a>
-            </div>
-        </div>
-        
-        <div style="text-align: center; margin-top: 40px;">
-            <p style="color: #6b7280;"><strong>What's included:</strong> Verified insurance coverage, written agreement, 24/7 support, free itinerary guide</p>
-            <p style="color: #6b7280; margin-top: 10px;"><strong>Not included:</strong> Fuel (you refill), parking fees, tolls</p>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="section testimonials">
-        <div class="section-header">
-            <h2>What Clients Say</h2>
-            <p>Real feedback from people who've rented with us.</p>
-        </div>
-        
-        <div class="testimonial-grid">
-            <div class="testimonial">
-                <div class="testimonial-text">
-                    "Best car hire experience in Mombasa. Transparent pricing, no hidden charges, and the itinerary guide helped us discover amazing spots we wouldn't have found on our own."
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h3>Economy</h3>
+                    <div class="price">From 3,000<span>/day</span></div>
+                    <p style="color: var(--text-secondary); margin-bottom: 20px;">City driving & couples</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Vitz, Demio or similar</li>
+                        <li><i class="fas fa-check"></i> 4-5 seats</li>
+                        <li><i class="fas fa-check"></i> Fuel efficient</li>
+                        <li><i class="fas fa-check"></i> Owner-insured</li>
+                    </ul>
+                    <a href="https://wa.me/254701190155?text=Economy car availability?" class="btn btn-primary" style="width: 100%; margin-top: 20px; text-align: center;">Check Availability</a>
                 </div>
-                <div class="testimonial-author">
-                    <div class="author-avatar">J</div>
-                    <div class="author-info">
-                        <h4>James K.</h4>
-                        <p>Nairobi, Kenya</p>
+                
+                <div class="price-card featured">
+                    <h3>Standard</h3>
+                    <div class="price">From 4,000<span>/day</span></div>
+                    <p style="color: var(--text-secondary); margin-bottom: 20px;">Families & comfort</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Fielder, Axio or similar</li>
+                        <li><i class="fas fa-check"></i> 5 seats + luggage</li>
+                        <li><i class="fas fa-check"></i> Comfortable drives</li>
+                        <li><i class="fas fa-check"></i> Owner-insured</li>
+                    </ul>
+                    <a href="https://wa.me/254701190155?text=Standard car availability?" class="btn btn-primary" style="width: 100%; margin-top: 20px; text-align: center;">Check Availability</a>
+                </div>
+                
+                <div class="price-card">
+                    <h3>SUV</h3>
+                    <div class="price">From 5,000<span>/day</span></div>
+                    <p style="color: var(--text-secondary); margin-bottom: 20px;">Adventure & groups</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> RAV4, Harrier or similar</li>
+                        <li><i class="fas fa-check"></i> 5-7 seats</li>
+                        <li><i class="fas fa-check"></i> Higher clearance</li>
+                        <li><i class="fas fa-check"></i> Owner-insured</li>
+                    </ul>
+                    <a href="https://wa.me/254701190155?text=SUV availability?" class="btn btn-primary" style="width: 100%; margin-top: 20px; text-align: center;">Check Availability</a>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px; color: var(--text-secondary);">
+                <p><strong>Note:</strong> Prices vary based on vehicle condition and are set by car owners. Contact us for exact rates on available vehicles.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-alt" id="owners">
+        <div class="container">
+            <div class="section-header">
+                <h2>Car Owners: Earn Passive Income</h2>
+                <p>Turn your idle car into KES 10,000-50,000+ monthly. ISO-certified fleet coordination.</p>
+            </div>
+            
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-money-bill-wave"></i></div>
+                    <h3>Earn KES 10K-50K/Month</h3>
+                    <p>Your car sits idle most of the month. We coordinate rentals professionally using ISO standards. You earn 70-80% of daily rate.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-clock"></i></div>
+                    <h3>Get Paid Immediately</h3>
+                    <p>You receive payment as soon as the client confirms booking by paying before vehicle handover. No waiting periods.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-certificate"></i></div>
+                    <h3>ISO-Certified Management</h3>
+                    <p>We coordinate the fleet using ISO 9001:2015 and ISO 19001:2018 standards from our inventory management experience.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-handshake"></i></div>
+                    <h3>No Upfront Fees</h3>
+                    <p>Free to list. We only earn when you earn. No hidden charges or listing fees.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-sliders-h"></i></div>
+                    <h3>You Set Your Price</h3>
+                    <p>You control your minimum daily rate based on your vehicle's condition. You choose when it's available.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-user-shield"></i></div>
+                    <h3>We Handle Coordination</h3>
+                    <p>We screen renters, verify documentation, coordinate bookings. You just collect your earnings.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <h3 style="margin-bottom: 20px; font-size: 1.8rem;">Requirements</h3>
+                <div style="max-width: 700px; margin: 0 auto;">
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> <strong>Comprehensive insurance</strong> (you maintain your coverage)</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> <strong>Well-maintained vehicle</strong> (clean, functional, safe)</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> <strong>Mombasa-based</strong> or nearby Coast region</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--secondary);"></i> <strong>Trust our ISO-certified process</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>Partner With Us</h2>
+                <p>Event planners, hotels, tour operators: Earn commission by referring clients to PwaniRides.</p>
+            </div>
+            
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-users"></i></div>
+                    <h3>Strategic Partnerships</h3>
+                    <p>We collaborate with event planners, hotels, tour operators, and anyone who gets asked about car hire in Mombasa.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-percent"></i></div>
+                    <h3>Earn Referral Commissions</h3>
+                    <p>Every client you refer earns you commission. Simple, transparent partnership structure.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-handshake"></i></div>
+                    <h3>Professional Coordination</h3>
+                    <p>We handle everything professionally with ISO-certified standards. You focus on your business, we handle the cars.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://wa.me/254701190155?text=I'm interested in a partnership" class="btn btn-primary">
+                    Discuss Partnership
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>Register Your Vehicle</h2>
+                <p>Fill out the form and we'll contact you within 24 hours.</p>
+            </div>
+            
+            <div class="form-container">
+                <form id="owner-form">
+                    <div class="form-row">
+                        <div>
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" required placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" required placeholder="0701190155">
+                        </div>
                     </div>
-                </div>
-            </div>
-            
-            <div class="testimonial">
-                <div class="testimonial-text">
-                    "Reliable service from start to finish. Car was clean, pickup was easy, and they were available on WhatsApp whenever we had questions. Will definitely book again."
-                </div>
-                <div class="testimonial-author">
-                    <div class="author-avatar">S</div>
-                    <div class="author-info">
-                        <h4>Sarah M.</h4>
-                        <p>Kisumu, Kenya</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonial">
-                <div class="testimonial-text">
-                    "Finally, a car hire service that's honest about pricing. No surprises, no last-minute fees. They helped us save money and showed us the real Mombasa."
-                </div>
-                <div class="testimonial-author">
-                    <div class="author-avatar">D</div>
-                    <div class="author-info">
-                        <h4>David O.</h4>
-                        <p>Eldoret, Kenya</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- For Car Owners -->
-    <section class="section" id="owners">
-        <div class="section-header">
-            <h2>Car Owners: Earn Passive Income</h2>
-            <p>Turn your idle car into KES 10,000 - 50,000+ monthly income. We handle everything.</p>
-        </div>
-        
-        <div class="grid">
-            <div class="card">
-                <div class="card-icon">
-                    <i class="fas fa-money-bill-wave"></i>
-                </div>
-                <h3>Earn KES 10K-50K/Month</h3>
-                <p>Your car sits idle most of the month. We find reliable renters and you earn up to 70-80% of the daily rate. Passive income while you focus on other things.</p>
-            </div>
-            
-            <div class="card">
-                <div class="card-icon">
-                    <i class="fas fa-handshake"></i>
-                </div>
-                <h3>No Upfront Fees</h3>
-                <p>Free to list your vehicle. We only earn when you earn. No hidden charges, no listing fees, no complicated contracts.</p>
-            </div>
-            
-            <div class="card">
-                <div class="card-icon">
-                    <i class="fas fa-user-shield"></i>
-                </div>
-                <h3>We Handle the Vetting</h3>
-                <p>We screen every renter, verify their ID, and ensure they understand the terms. You stay protected while earning passive income.</p>
-            </div>
-            
-            <div class="card">
-                <div class="card-icon">
-                    <i class="fas fa-calendar-check"></i>
-                </div>
-                <h3>You Control Availability</h3>
-                <p>Set your minimum daily rate. Choose when your car is available. Need it for personal use? Just let us know. You're always in control.</p>
-            </div>
-            
-            <div class="card">
-                <div class="card-icon">
-                    <i class="fas fa-file-signature"></i>
-                </div>
-                <h3>Clear Documentation</h3>
-                <p>Written agreements for every rental. Everything transparent and documented. No confusion, no verbal promises.</p>
-            </div>
-            
-            <div class="card">
-                <div class="card-icon">
-                    <i class="fas fa-clock"></i>
-                </div>
-                <h3>Fast Payments</h3>
-                <p>Get paid within 24-48 hours after rental completion. M-Pesa transfer directly to your account. No delays, no excuses.</p>
-            </div>
-        </div>
-        
-        <div style="text-align: center; margin-top: 50px;">
-            <h3 style="margin-bottom: 20px; font-size: 1.8rem;">Requirements for Car Owners</h3>
-            <div style="max-width: 700px; margin: 0 auto; text-align: left;">
-                <ul style="list-style: none; padding: 0;">
-                    <li style="padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px;">
-                        <i class="fas fa-check-circle" style="color: var(--secondary); font-size: 1.3rem;"></i>
-                        <span><strong>Valid comprehensive insurance</strong> (you maintain your own coverage)</span>
-                    </li>
-                    <li style="padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px;">
-                        <i class="fas fa-check-circle" style="color: var(--secondary); font-size: 1.3rem;"></i>
-                        <span><strong>Well-maintained vehicle</strong> (clean, functional, safe to drive)</span>
-                    </li>
-                    <li style="padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px;">
-                        <i class="fas fa-check-circle" style="color: var(--secondary); font-size: 1.3rem;"></i>
-                        <span><strong>Vehicle based in Mombasa</strong> or nearby Coast region</span>
-                    </li>
-                    <li style="padding: 12px 0; display: flex; align-items: center; gap: 12px;">
-                        <i class="fas fa-check-circle" style="color: var(--secondary); font-size: 1.3rem;"></i>
-                        <span><strong>Trust in our transparent process</strong> (we document everything)</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Car Owner Form -->
-    <section class="section" style="background: var(--light);">
-        <div class="section-header">
-            <h2>Register Your Vehicle</h2>
-            <p>Fill out the form below and we'll contact you within 24 hours to discuss the partnership.</p>
-        </div>
-        
-        <div class="form-container">
-            <form id="owner-form">
-                <div class="form-row">
-                    <div>
-                        <label for="name">Full Name *</label>
-                        <input type="text" id="name" required placeholder="John Doe">
-                    </div>
-                    <div>
-                        <label for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" required placeholder="0701190155">
-                    </div>
-                </div>
-
-                <div>
                     <label for="email">Email (Optional)</label>
                     <input type="email" id="email" placeholder="your@email.com">
-                </div>
 
-                <div class="form-row">
-                    <div>
-                        <label for="make">Car Make *</label>
-                        <input type="text" id="make" required placeholder="Toyota">
+                    <div class="form-row">
+                        <div>
+                            <label for="make">Car Make *</label>
+                            <input type="text" id="make" required placeholder="Toyota">
+                        </div>
+                        <div>
+                            <label for="model">Car Model *</label>
+                            <input type="text" id="model" required placeholder="Fielder">
+                        </div>
                     </div>
-                    <div>
-                        <label for="model">Car Model *</label>
-                        <input type="text" id="model" required placeholder="Fielder">
-                    </div>
-                </div>
 
-                <div class="form-row">
-                    <div>
-                        <label for="year">Year of Manufacture *</label>
-                        <input type="number" id="year" min="1990" max="2026" required placeholder="2015">
+                    <div class="form-row">
+                        <div>
+                            <label for="year">Year *</label>
+                            <input type="number" id="year" min="1990" max="2026" required placeholder="2015">
+                        </div>
+                        <div>
+                            <label for="mileage">Mileage (km) *</label>
+                            <input type="number" id="mileage" required placeholder="120000">
+                        </div>
                     </div>
-                    <div>
-                        <label for="mileage">Mileage (km) *</label>
-                        <input type="number" id="mileage" required placeholder="120000">
-                    </div>
-                </div>
 
-                <div class="form-row">
-                    <div>
-                        <label for="transmission">Transmission *</label>
-                        <select id="transmission" required>
-                            <option value="">Select</option>
-                            <option value="Automatic">Automatic</option>
-                            <option value="Manual">Manual</option>
-                        </select>
+                    <div class="form-row">
+                        <div>
+                            <label for="transmission">Transmission *</label>
+                            <select id="transmission" required>
+                                <option value="">Select</option>
+                                <option value="Automatic">Automatic</option>
+                                <option value="Manual">Manual</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="fuel">Fuel Type *</label>
+                            <select id="fuel" required>
+                                <option value="">Select</option>
+                                <option value="Petrol">Petrol</option>
+                                <option value="Diesel">Diesel</option>
+                                <option value="Hybrid">Hybrid</option>
+                            </select>
+                        </div>
                     </div>
-                    <div>
-                        <label for="fuel">Fuel Type *</label>
-                        <select id="fuel" required>
-                            <option value="">Select</option>
-                            <option value="Petrol">Petrol</option>
-                            <option value="Diesel">Diesel</option>
-                            <option value="Hybrid">Hybrid</option>
-                        </select>
-                    </div>
-                </div>
 
-                <div class="form-row">
-                    <div>
-                        <label for="seats">Number of Seats *</label>
-                        <input type="number" id="seats" min="2" max="10" required placeholder="5">
+                    <div class="form-row">
+                        <div>
+                            <label for="seats">Seats *</label>
+                            <input type="number" id="seats" min="2" max="10" required placeholder="5">
+                        </div>
+                        <div>
+                            <label for="rate">Your Minimum Daily Rate (KES) *</label>
+                            <input type="number" id="rate" required placeholder="3000">
+                        </div>
                     </div>
-                    <div>
-                        <label for="rate">Your Minimum Daily Rate (KES) *</label>
-                        <input type="number" id="rate" required placeholder="3000">
-                    </div>
-                </div>
 
-                <div>
-                    <label for="condition">Vehicle Condition Description *</label>
-                    <textarea id="condition" rows="3" required placeholder="Describe your vehicle's current condition, any issues, recent maintenance, etc."></textarea>
-                </div>
+                    <label for="condition">Vehicle Condition *</label>
+                    <textarea id="condition" rows="3" required placeholder="Describe condition, recent maintenance, etc."></textarea>
 
-                <div>
                     <label for="availability">Availability *</label>
-                    <input type="text" id="availability" placeholder="e.g., Always available, weekends only, or specific dates" required>
-                </div>
+                    <input type="text" id="availability" placeholder="e.g., Always available or specific dates" required>
 
-                <div class="checkbox-wrapper">
-                    <input type="checkbox" id="disclaimer" required>
-                    <label for="disclaimer" class="disclaimer">
-                        I understand that I must maintain valid comprehensive insurance on my vehicle. Mombasa Car Hiring does not provide insurance coverage or tracking devices. I am responsible for ensuring my vehicle is properly insured before listing. All terms will be clearly documented in our partnership agreement.
-                    </label>
-                </div>
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="disclaimer" required>
+                        <label for="disclaimer" style="font-weight: 400; color: var(--text-secondary); font-size: 0.9rem;">
+                            I confirm I maintain comprehensive insurance on my vehicle. PwaniRides does not provide insurance. I understand payment is made when client confirms booking before handover.
+                        </label>
+                    </div>
 
-                <button type="submit">
-                    <i class="fab fa-whatsapp"></i> Submit Registration (WhatsApp)
-                </button>
+                    <button type="submit">
+                        <i class="fab fa-whatsapp"></i> Submit via WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What's included in the rental price?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        The rental includes: vehicle with owner's comprehensive insurance, written agreement, 24/7 support, and professional ISO-certified coordination. Fuel, parking, and tolls are separate. Final price depends on vehicle condition and owner's rate.
+                    </div>
+                </div>
                 
-                <p style="text-align: center; color: #6b7280; font-size: 0.9rem; margin-top: 15px;">
-                    We'll review your submission and contact you within 24 hours via WhatsApp.
-                </p>
-            </form>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section">
-        <div class="section-header">
-            <h2>Frequently Asked Questions</h2>
-            <p>Got questions? We've got answers.</p>
-        </div>
-        
-        <div class="faq-container">
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>What's included in the rental price?</span>
-                    <i class="fas fa-chevron-down"></i>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is insurance included?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        All vehicles come with comprehensive insurance maintained by car owners. We verify coverage before booking. PwaniRides does not provide additional insurance - coverage comes from the vehicle owner.
+                    </div>
                 </div>
-                <div class="faq-answer">
-                    The rental price includes: verified vehicle with insurance coverage, written rental agreement, 24/7 WhatsApp support, free Mombasa itinerary guide, and unlimited mileage within the Coast region. Fuel, parking, and tolls are not included.
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How does pricing work?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Prices start from KES 3,000/day. Final rates depend on vehicle condition and are set by car owners. Contact us for exact pricing on available vehicles.
+                    </div>
                 </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>Do I need to pay a deposit?</span>
-                    <i class="fas fa-chevron-down"></i>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>For car owners: When do I get paid?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        You receive payment immediately when the client confirms booking by paying before vehicle handover. No waiting periods or delays.
+                    </div>
                 </div>
-                <div class="faq-answer">
-                    Yes, a refundable security deposit is required (amount varies by vehicle). This protects the car owner and is fully refunded after you return the vehicle in the same condition. All deposit terms are clearly documented in the rental agreement.
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What is ISO-certified fleet coordination?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        We use ISO 9001:2015 and ISO 19001:2018 standards from our inventory management experience to professionally coordinate the fleet. This ensures quality, documentation, and systematic processes.
+                    </div>
                 </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>Is insurance included?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    All vehicles we list come from car owners who maintain comprehensive insurance. Before your rental, we verify that valid insurance is in place. However, you should review the insurance details and consider additional coverage if needed for your peace of mind.
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>Can I drive outside Mombasa?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    Yes! You can drive anywhere in the Coast region (Mombasa, Kilifi, Diani, Malindi, Watamu) with unlimited mileage. For trips to Nairobi or other regions, please inform us in advance so we can confirm with the car owner.
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>What if I have issues during my rental?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    We provide 24/7 WhatsApp support (0701190155). Whether it's a flat tire, getting lost, or needing restaurant recommendations, message us anytime. We're local and always available to help.
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>For car owners: How much can I earn?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    Earnings depend on your vehicle type and availability. Economy cars rent for KES 3,000-4,000/day, SUVs for KES 5,000+/day. You receive 70-80% of the daily rate. If your car is rented 10 days/month at KES 3,500/day, you'd earn approximately KES 24,500-28,000/month.
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>For car owners: What if a renter damages my car?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    This is why we require you to maintain comprehensive insurance coverage. We also collect a security deposit from renters, screen all clients thoroughly, and document vehicle condition before/after each rental. Everything is in writing to protect you.
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>How do I know this isn't a scam?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    Great question. Here's how we build trust: (1) Everything is documented in writing, (2) We verify all parties before any transaction, (3) We're transparent about our process publicly, (4) We use business WhatsApp and have a registered presence, (5) We encourage you to speak with previous clients. We're local, accessible, and building this business for the long term.
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you offer partnership opportunities?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Yes! We partner with event planners, hotels, tour operators, and anyone who gets asked about car hire. You earn commission for every referral. Message us to discuss partnership terms.
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Final CTA -->
     <section class="cta-section">
-        <h2>Ready to Start?</h2>
-        <p>Whether you need a car for your Mombasa trip or want to earn passive income from your vehicle, we're here to help.</p>
-        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 30px;">
-            <a href="https://wa.me/254701190155?text=I'd like to rent a car" class="cta-button" style="background: white; color: var(--primary);">
-                <i class="fas fa-car"></i> Rent a Car
-            </a>
-            <a href="https://wa.me/254701190155?text=I'd like to list my car and earn passive income" class="cta-button cta-button-secondary">
-                <i class="fas fa-money-bill-wave"></i> List Your Car
-            </a>
+        <div class="container">
+            <h2>Ready to Get Started?</h2>
+            <p>Rent a car for your Mombasa adventure or earn passive income from your vehicle.</p>
+            <div class="btn-group">
+                <a href="https://wa.me/254701190155?text=I'd like to rent a car" class="btn btn-secondary">
+                    <i class="fas fa-car"></i> Rent a Car
+                </a>
+                <a href="https://wa.me/254701190155?text=I want to list my car" class="btn btn-secondary">
+                    <i class="fas fa-money-bill-wave"></i> List Your Car
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Mombasa Car Hiring</h3>
-                <p>Transparent. Reliable. Local.</p>
-                <p style="margin-top: 15px;">Building Mombasa's most trustworthy self-drive car rental service.</p>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>PwaniRides</h3>
+                    <p style="color: var(--text-secondary);">ISO-certified self-drive car rentals in Mombasa. Transparent. Professional. Reliable.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#rent">Rent a Car</a>
+                    <a href="#owners">List Your Car</a>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="https://wa.me/254701190155">Contact Us</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p style="color: var(--text-secondary);"><i class="fab fa-whatsapp"></i> WhatsApp: 0701190155</p>
+                    <p style="color: var(--text-secondary);"><i class="fas fa-phone"></i> Call: 0701190155</p>
+                    <p style="color: var(--text-secondary);"><i class="fas fa-map-marker-alt"></i> Mombasa, Kenya</p>
+                </div>
             </div>
             
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <a href="#rent">Rent a Car</a>
-                <a href="#owners">List Your Car</a>
-                <a href="#how-it-works">How It Works</a>
-                <a href="https://wa.me/254701190155">Contact Us</a>
+            <div class="footer-bottom">
+                <p>&copy; 2026 PwaniRides | ISO-Certified Fleet Coordination</p>
             </div>
-            
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p><i class="fab fa-whatsapp"></i> WhatsApp: 0701190155</p>
-                <p><i class="fas fa-phone"></i> Call: 0701190155</p>
-                <p><i class="fas fa-map-marker-alt"></i> Based in Mombasa, Kenya</p>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Service Area</h3>
-                <p>Mombasa</p>
-                <p>Nyali</p>
-                <p>Bamburi</p>
-                <p>Diani</p>
-                <p>Kilifi</p>
-                <p>Malindi</p>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2026 Mombasa Car Hiring | Reliable, Local, Transparent Service</p>
-            <p style="margin-top: 10px; font-size: 0.85rem;">Self-drive car rentals in Mombasa, Kenya. Verified vehicles. Fair pricing. 24/7 support.</p>
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/254701190155" class="floating-whatsapp" target="_blank">
+    <a href="https://wa.me/254701190155" class="floating-whatsapp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Scripts -->
     <script>
+        // Theme Toggle
+        function toggleTheme() {
+            const body = document.body;
+            const icon = document.querySelector('.theme-toggle i');
+            
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                icon.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                icon.className = 'fas fa-sun';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+        
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.setAttribute('data-theme', 'dark');
+            document.querySelector('.theme-toggle i').className = 'fas fa-sun';
+        }
+        
         // Form Submission
-        document.getElementById('owner-form').addEventListener('submit', function(event) {
-            event.preventDefault();
+        document.getElementById('owner-form').addEventListener('submit', function(e) {
+            e.preventDefault();
             if (!this.checkValidity()) return;
 
-            const data = {
+            const d = {
                 name: document.getElementById('name').value,
                 phone: document.getElementById('phone').value,
                 email: document.getElementById('email').value || 'N/A',
@@ -1310,44 +1186,32 @@
                 seats: document.getElementById('seats').value,
                 condition: document.getElementById('condition').value,
                 availability: document.getElementById('availability').value,
-                rate: document.getElementById('rate').value,
-                disclaimer: document.getElementById('disclaimer').checked ? 'Agreed' : 'Not Agreed'
+                rate: document.getElementById('rate').value
             };
 
-            const message = `*New Car Owner Registration*%0A%0A*Owner Details:*%0AName: ${data.name}%0APhone: ${data.phone}%0AEmail: ${data.email}%0A%0A*Vehicle Details:*%0AMake: ${data.make}%0AModel: ${data.model}%0AYear: ${data.year}%0AMileage: ${data.mileage} km%0ATransmission: ${data.transmission}%0AFuel: ${data.fuel}%0ASeats: ${data.seats}%0A%0A*Condition:*%0A${data.condition}%0A%0A*Availability:*%0A${data.availability}%0A%0A*Preferred Daily Rate:* KES ${data.rate}%0A%0A*Insurance Disclaimer:* ${data.disclaimer}`;
+            const msg = `*PwaniRides Car Registration*%0A%0A*Owner:* ${d.name}%0A*Phone:* ${d.phone}%0A*Email:* ${d.email}%0A%0A*Vehicle:* ${d.make} ${d.model} (${d.year})%0A*Mileage:* ${d.mileage}km%0A*Transmission:* ${d.transmission}%0A*Fuel:* ${d.fuel}%0A*Seats:* ${d.seats}%0A*Condition:* ${d.condition}%0A*Availability:* ${d.availability}%0A*Minimum Rate:* KES ${d.rate}/day`;
 
-            window.location.href = `https://wa.me/254701190155?text=${message}`;
+            window.location.href = `https://wa.me/254701190155?text=${msg}`;
         });
 
         // FAQ Accordion
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const faqItem = question.parentElement;
-                const isActive = faqItem.classList.contains('active');
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                const item = q.parentElement;
+                const isActive = item.classList.contains('active');
                 
-                // Close all FAQs
-                document.querySelectorAll('.faq-item').forEach(item => {
-                    item.classList.remove('active');
-                });
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
                 
-                // Open clicked FAQ if it wasn't active
-                if (!isActive) {
-                    faqItem.classList.add('active');
-                }
+                if (!isActive) item.classList.add('active');
             });
         });
 
-        // Smooth scroll for anchor links
+        // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
     </script>
