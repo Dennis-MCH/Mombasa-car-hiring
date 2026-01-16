@@ -243,6 +243,202 @@
             margin-bottom: 0.5rem;
         }
         
+        /* Vehicle Owners Section */
+        .owners {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, rgba(40,167,69,0.05), rgba(32,201,151,0.05));
+        }
+        
+        .owners h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #28A745;
+            margin-bottom: 1rem;
+        }
+        
+        .owners-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+        
+        .owners-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .owners-benefits h3 {
+            color: #28A745;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+        }
+        
+        .benefit-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            align-items: start;
+        }
+        
+        .benefit-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+        
+        .benefit-item h4 {
+            color: #0077BE;
+            margin-bottom: 0.3rem;
+        }
+        
+        .benefit-item p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .owners-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .owners-form h3 {
+            color: #0077BE;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .owners-form input,
+        .owners-form select,
+        .owners-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: Arial, sans-serif;
+            transition: border-color 0.3s;
+        }
+        
+        .owners-form input:focus,
+        .owners-form select:focus,
+        .owners-form textarea:focus {
+            outline: none;
+            border-color: #28A745;
+        }
+        
+        .owners-form button {
+            width: 100%;
+        }
+        
+        /* Partnership Section */
+        .partnership {
+            padding: 80px 20px;
+            background: white;
+        }
+        
+        .partnership h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #0077BE;
+            margin-bottom: 1rem;
+        }
+        
+        .partnership-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+        
+        .partnership-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .partnership-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .partnership-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #0077BE;
+        }
+        
+        .partnership-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .partnership-card h3 {
+            color: #0077BE;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .partnership-card ol,
+        .partnership-card ul {
+            padding-left: 1.5rem;
+        }
+        
+        .partnership-card li {
+            margin-bottom: 0.8rem;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .partnership-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border: 2px solid #e0e0e0;
+        }
+        
+        .partnership-form h3 {
+            color: #0077BE;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .partnership-form input,
+        .partnership-form select,
+        .partnership-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: Arial, sans-serif;
+            transition: border-color 0.3s;
+        }
+        
+        .partnership-form input:focus,
+        .partnership-form select:focus,
+        .partnership-form textarea:focus {
+            outline: none;
+            border-color: #0077BE;
+        }
+        
+        .partnership-form button {
+            width: 100%;
+        }
+        
         /* Contact Section */
         .contact {
             padding: 80px 20px;
@@ -356,8 +552,13 @@
                 display: block;
             }
             
-            .features h2, .fleet h2, .standards h2, .contact h2 {
+            .features h2, .fleet h2, .standards h2, .contact h2, .owners h2, .partnership h2 {
                 font-size: 2rem;
+            }
+            
+            .owners-container,
+            .partnership-container {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -372,7 +573,8 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#fleet">Vehicles</a></li>
-                <li><a href="#standards">Our Standards</a></li>
+                <li><a href="#owners">Vehicle Owners</a></li>
+                <li><a href="#partnership">Partnerships</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -468,6 +670,122 @@
         </div>
     </section>
 
+    <!-- Vehicle Owners Section -->
+    <section class="owners" id="owners">
+        <h2>Own a Vehicle? Earn Passive Income!</h2>
+        <p class="owners-subtitle">Partner with PwaniRides and turn your idle vehicle into a revenue stream</p>
+        <div class="owners-container">
+            <div class="owners-benefits">
+                <h3>Why Partner With Us?</h3>
+                <div class="benefit-item">
+                    <span class="benefit-icon">💰</span>
+                    <div>
+                        <h4>Earn from 20,000 KES Monthly</h4>
+                        <p>Generate passive income from your vehicle</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">✅</span>
+                    <div>
+                        <h4>We Handle Everything</h4>
+                        <p>Client acquisition, contracts, and insurance verification</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">🛡️</span>
+                    <div>
+                        <h4>Protected Assets</h4>
+                        <p>Clients cover minor damages during rental period</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">⚡</span>
+                    <div>
+                        <h4>Immediate Payment</h4>
+                        <p>Get paid as soon as client rents - no waiting months</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">📅</span>
+                    <div>
+                        <h4>Flexible Terms</h4>
+                        <p>Rent out your vehicle on YOUR schedule</p>
+                    </div>
+                </div>
+            </div>
+            <div class="owners-form">
+                <h3>Register Your Vehicle</h3>
+                <form id="ownerForm">
+                    <input type="text" id="ownerName" placeholder="Your Name *" required>
+                    <input type="tel" id="ownerPhone" placeholder="Phone Number *" required>
+                    <input type="email" id="ownerEmail" placeholder="Email Address">
+                    <select id="vehicleType" required>
+                        <option value="">Select Vehicle Type *</option>
+                        <option value="Toyota Vitz">Toyota Vitz</option>
+                        <option value="Toyota Fielder">Toyota Fielder</option>
+                        <option value="Toyota Axio">Toyota Axio</option>
+                        <option value="Toyota RAV4">Toyota RAV4</option>
+                        <option value="Honda CRV">Honda CRV</option>
+                        <option value="Toyota Prado">Toyota Prado</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <input type="text" id="vehicleYear" placeholder="Year of Manufacture">
+                    <textarea id="ownerMessage" placeholder="Additional Information (condition, availability, etc.)" rows="4"></textarea>
+                    <button type="submit" class="cta-button">Submit to WhatsApp</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership Section -->
+    <section class="partnership" id="partnership">
+        <h2>Become a Partner & Earn Commission</h2>
+        <p class="partnership-subtitle">Refer clients to us and earn 10% commission on every rental</p>
+        <div class="partnership-container">
+            <div class="partnership-info">
+                <div class="partnership-card">
+                    <div class="partnership-icon">🤝</div>
+                    <h3>How It Works</h3>
+                    <ol>
+                        <li>Register as a PwaniRides partner</li>
+                        <li>Refer clients who need car rentals</li>
+                        <li>Earn 10% commission on every successful rental</li>
+                        <li>Get paid immediately after client books</li>
+                    </ol>
+                </div>
+                <div class="partnership-card">
+                    <div class="partnership-icon">💵</div>
+                    <h3>Earning Potential</h3>
+                    <ul>
+                        <li>Economy rentals: 300 KES per booking</li>
+                        <li>Business rentals: 500 KES per booking</li>
+                        <li>SUV rentals: 1,000 KES per booking</li>
+                        <li>Unlimited earning potential!</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="partnership-form">
+                <h3>Partner Registration</h3>
+                <form id="partnerForm">
+                    <input type="text" id="partnerName" placeholder="Your Full Name *" required>
+                    <input type="tel" id="partnerPhone" placeholder="Phone Number *" required>
+                    <input type="email" id="partnerEmail" placeholder="Email Address *" required>
+                    <input type="text" id="partnerLocation" placeholder="Your Location">
+                    <select id="partnerType" required>
+                        <option value="">How will you bring clients? *</option>
+                        <option value="Social Media">Social Media Marketing</option>
+                        <option value="Personal Network">Personal Network</option>
+                        <option value="Business Contacts">Business Contacts</option>
+                        <option value="Tourism/Hospitality">Tourism/Hospitality Industry</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <textarea id="partnerMessage" placeholder="Tell us about your network and how you plan to refer clients" rows="4"></textarea>
+                    <button type="submit" class="cta-button">Apply for Partnership</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <h2>Get In Touch</h2>
@@ -517,6 +835,50 @@
                 }
             });
         });
+        
+        // Vehicle Owner Form Submission to WhatsApp
+        document.getElementById('ownerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('ownerName').value;
+            const phone = document.getElementById('ownerPhone').value;
+            const email = document.getElementById('ownerEmail').value;
+            const vehicleType = document.getElementById('vehicleType').value;
+            const vehicleYear = document.getElementById('vehicleYear').value;
+            const message = document.getElementById('ownerMessage').value;
+            
+            const whatsappMessage = `*VEHICLE OWNER REGISTRATION*%0A%0A` +
+                `Name: ${name}%0A` +
+                `Phone: ${phone}%0A` +
+                `Email: ${email || 'N/A'}%0A` +
+                `Vehicle: ${vehicleType}%0A` +
+                `Year: ${vehicleYear || 'N/A'}%0A` +
+                `Additional Info: ${message || 'N/A'}`;
+            
+            window.open(`https://wa.me/254701190155?text=${whatsappMessage}`, '_blank');
+        });
+        
+        // Partnership Form Submission to WhatsApp
+        document.getElementById('partnerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('partnerName').value;
+            const phone = document.getElementById('partnerPhone').value;
+            const email = document.getElementById('partnerEmail').value;
+            const location = document.getElementById('partnerLocation').value;
+            const partnerType = document.getElementById('partnerType').value;
+            const message = document.getElementById('partnerMessage').value;
+            
+            const whatsappMessage = `*PARTNERSHIP APPLICATION*%0A%0A` +
+                `Name: ${name}%0A` +
+                `Phone: ${phone}%0A` +
+                `Email: ${email}%0A` +
+                `Location: ${location || 'N/A'}%0A` +
+                `Client Source: ${partnerType}%0A` +
+                `Details: ${message || 'N/A'}`;
+            
+            window.open(`https://wa.me/254701190155?text=${whatsappMessage}`, '_blank');
+        });
     </script>
 </body>
-            </html>
+</html>
